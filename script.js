@@ -9,21 +9,30 @@ function changeStatus(list, task, status) {
 }
 
 function showList(list) {
-    return console.log(list);;
+    let inProgress = 'In progress: \n';
+    let done = 'Done: \n';
+
+    for (let key in list) {
+        if (list[key] == 'in progress') {
+            inProgress = inProgress + '  ' + key + '\n';
+        }
+        if (list[key] == 'done') {
+            done = done + '  ' + key + '\n';
+        }
+    }
+    let result = inProgress + done;
+    
+    return console.log(result);;
 }
 
 function deleteTask(list ,task) {
     delete list[task];
 }
 
-showList(toDoList);
 addTask(toDoList, 'to run', 'in progress');
 addTask(toDoList, 'to buy a bread', 'in progress');
-showList(toDoList);
 addTask(toDoList, 'to drink a cup of coffee', 'done');
 addTask(toDoList, 'to make a bed', 'in progress');
-showList(toDoList);
 changeStatus(toDoList, 'to run', 'done');
-showList(toDoList);
 deleteTask(toDoList, 'to drink a cup of coffee');
 showList(toDoList);
