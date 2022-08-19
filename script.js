@@ -1,9 +1,4 @@
-let toDoList = {
-    'to run': 'in progress',
-    'to buy bread': 'in progress',
-    'to drink a cup of coffee': 'done',
-};
-
+let toDoList = {};
 
 function addTask(list, task, status) {
     return list[task] = status;
@@ -22,6 +17,10 @@ function deleteTask(list ,task) {
 }
 
 showList(toDoList);
+addTask(toDoList, 'to run', 'in progress');
+addTask(toDoList, 'to buy a bread', 'in progress');
+showList(toDoList);
+addTask(toDoList, 'to drink a cup of coffee', 'done');
 addTask(toDoList, 'to make a bed', 'in progress');
 showList(toDoList);
 changeStatus(toDoList, 'to run', 'done');
